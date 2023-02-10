@@ -7,6 +7,13 @@ public class Queue {
     Queue(){
     
     }
+    public boolean isEmpty(){
+        if(backPointer == frontPointer){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public void enqueue(Customer c){    
         qlist[backPointer] = c;
         if(backPointer++ > 999){
@@ -14,16 +21,13 @@ public class Queue {
         }
     }
     public void dequeue(){
-        qlist[frontPointer] = null;
-        if(frontPointer++ > 999){
-            frontPointer = 0;
-        }
-    }
-    public boolean isEmpty(){
-        if(backPointer == frontPointer){
-            return true;
+        if(isEmpty == false){
+            qlist[frontPointer] = null;
+            if(frontPointer++ > 999){
+                frontPointer = 0;
+            }
         }else{
-            return false;
+            System.out.println("Attempted to dequeued an empty queue, nothing happened");
         }
     }
     public String front(){
