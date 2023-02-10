@@ -2,15 +2,19 @@ package t5;
 
 public class Customer {
     // info : name, queue number (qid)
-    static String name;
-    static int qID = 0;
+    private String name;
+    static int qc = 0;
+    private int qID;
 
     Customer(){
-        name = "no name input";
-        int qID = Customer.qID;
-        Customer.qID++;
-        System.out.println("Customer.qid"+Customer.qID);
-        System.out.println("qid"+qID);
+        this.name = "no name input";
+        this.qID = qc;
+        qc++;
+    }
+    Customer(String n){
+        this.name = n;
+        this.qID = qc;
+        qc++;
     }
     public String queueNumberToString(int n){
         if(n > 99){
@@ -22,6 +26,6 @@ public class Customer {
         }
     }
     public String toString(){
-        return "Name : " + name + "\n Queue number :" + queueNumberToString(qID);
+        return this.name + "\n  >> Queue number : " + queueNumberToString(this.qID);
     }
 }
